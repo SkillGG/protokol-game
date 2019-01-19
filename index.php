@@ -46,7 +46,8 @@ else{
 			x.replaceWith(document.createElement('div'));
 		x = document.querySelector('div');
 		if(x)
-			x.replaceWith(document.createElement('div'));
+			if(!x.matches('#grid'))
+				x.replaceWith(document.createElement('div'));
 	</script>
 </body>
 </html>
