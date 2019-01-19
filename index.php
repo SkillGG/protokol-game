@@ -44,6 +44,9 @@ else{
 		let x = document.getElementById('top_10');
 		if(x)
 			x.replaceWith(document.createElement('div'));
+		x = document.querySelector('div');
+		if(x)
+			x.replaceWith(document.createElement('div'));
 	</script>
 </body>
 </html>
