@@ -1,0 +1,33 @@
+@keyframes blinkOP {
+	50% {opacity: 1;}
+}
+
+@-webkit-keyframes blinkOP {
+	50% {opacity: 1;}
+}
+
+.clickProceed {
+	display: inline-block;
+	background-image: url('ctc.png');
+	animation: blinkOP 1s infinite;
+	-webkit-animation: blinkOP 1s infinite;
+	opacity: 0;
+}
+
+@keyframes flashBorder{
+	50%  {
+		border: none;
+	}
+}
+
+@-webkit-keyframes flashBorder{
+	50%  {
+		border: none;
+	}
+}
+
+#playerInput.flashingBorderRed, .flashingBorderRed {
+	border: 1px solid red;
+	animation: flashBorder 1s infinite;
+	-webkit-animation: flashBorder 1s infinite;
+}
