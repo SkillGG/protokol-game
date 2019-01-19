@@ -22,9 +22,9 @@ Game.menu = function(chapter){
 	else if(chapter === 0){
 		// FIRST TIME MENU
 
-		Screen.addLines(
-			Lang.getCenter(``)
-		);
+		// Screen.addLines(
+		// 	Lang.getCenter(``)
+		// );
 
 	}
 	else{
