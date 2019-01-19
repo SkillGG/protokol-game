@@ -5,7 +5,7 @@ noFilter{`/no|n/i`}
 // single eval:
 
 // no eval:
-startScreen1{`<span class='title'>Welcome to <b class='blue'>The Game</b>!</span>`}
+startScreen1{`<span class='title'>Welcome to <b class='blue'>proto</b><b class='red'>Kol</b>!</span>`}
 chooseLanguage1{`<span>Please select your language </span>`}
 chooseLanguage2{`<span> and then type <span class='p15'>(or click) </span><code class='typeIn'>start</code> in <span class='yellow'>yellow</span> box below.</span>`}
 disclaimer1{`<span class='red'>Here is a quick disclaimer before playing:</span>`}
