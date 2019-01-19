@@ -9,7 +9,7 @@ Game.story = function(){
 		Game.menu();
 	else
 		Game.menu(UserData.chapter);
-
+	
 }
 
 Game.menu = function(){
