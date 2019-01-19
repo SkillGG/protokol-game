@@ -1,0 +1,5 @@
+startScreen1{`<span style='font-size:25px'>Willkommen in <b class='blue'>Das Spiel</b>!</span>`}
+chooseLanguage1{`<span>Bitte wählen Sie Ihre Sprache</span>`}
+chooseLanguage2{`<span> und geben Sie unten in das <span class='yellow'>gelbe Feld</span> <code class='typeIn'>start</code> ein.</span>`}
+begin1{`<span class='green p30'>Gut.</span>`}
+begin2{`<span class='crimson p30'>Lasst uns beginnen!</span>`}

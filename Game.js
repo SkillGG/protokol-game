@@ -6,18 +6,30 @@ Game.story = function(){
 
 	// MENU HERE
 	if(!UserData.chapter)
-		Game.menu();
+		Game.menu(0);
 	else
 		Game.menu(UserData.chapter);
-	
 }
 
-Game.menu = function(){
+Game.menu = function(chapter){
 
 	this.stage = 2;
 
 	Screen.clear();
 
+	if(!chapter && chapter !== 0)
+		return;
+	else if(chapter === 0){
+		// FIRST TIME MENU
+
+		Screen.addLines(
+			Lang.getCenter(``)
+		);
+
+	}
+	else{
+		// MAIN MENU
+	}
 
 }
 

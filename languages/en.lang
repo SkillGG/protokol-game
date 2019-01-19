@@ -1,0 +1,22 @@
+// double eval:
+yesFilter{`/yes|y/i`}
+noFilter{`/no|n/i`}
+
+// single eval:
+
+// no eval:
+startScreen1{`<span class='title'>Welcome to <b class='blue'>The Game</b>!</span>`}
+chooseLanguage1{`<span>Please select your language </span>`}
+chooseLanguage2{`<span> and then type <span class='p15'>(or click) </span><code class='typeIn'>start</code> in <span class='yellow'>yellow</span> box below.</span>`}
+disclaimer1{`<span class='red'>Here is a quick disclaimer before playing:</span>`}
+begin1{`<span class='crimson p30'>Do you want to learn how to play?<br><center><b><code class='typeIn p15 lime'>Yes</code> <code class='typeIn p15 lime'>No</code></b></center></span>`}
+disclaimerPt1{`<span class='green'>1. <b>If you're playing on mobile or with resolution lower than 1366x768 please change your resolution/rotate your screen to landscape view for better experience.</b> </span>`}
+disclaimerPt2{`<span class='green'>2. <b>PLACEHOLDER 1</b> </span>`}
+disclaimerPt3{`<span class='green'>3. <b>PLACEHOLDER 2</b> </span>`}
+disclaimerPt4{`<span class='green'>4. <b>PLACEHOLDER 3</b> </span>`}
+disclaimerPt5{`<span class='green'>5. <b>PLACEHOLDER 4</b> </span>`}
+clickToProceed{`<span class='p15 black'><div class='clickProceed square10' title='(Click anywhere to proceed)'></div></span>`}
+tutorial1{`<span class='p30 lime'>Tutorial</span>`}
+tutorial2{`<span class='p20 lime'>So here you got a Screen.<br> It is a field where you were spend most of your time.</span>`}
+tutorial3{`<span class='p20 lime'>Yellow bar below is a text input. You can do almost everything with it. And sometimes you will have to use it.</span>`}
+tutorial4{`<span class='p20 lime'>On the right side you got Interface. It can be managed via text field, so you really don't have to use mouse ever, but you can ue mouse(touchscreen) to do so.</span>`}

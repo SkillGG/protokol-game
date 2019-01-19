@@ -1,0 +1,15 @@
+yes y
+
+no n
+
+Welcome to 
+Das Spiel 
+!
+
+Please select your language 
+ and then type 
+(or click) 
+...
+in
+yellow
+ box below.

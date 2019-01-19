@@ -21,9 +21,9 @@ if(document.querySelector('#usr_n').value || 'default'){
 		UserData.hasStarted = parseInt(j.started) || 0; // Checks if player has past language selection
 		UserData.chapter = parseInt(j.chapter) || 0;
 		Lang.loadDictionaries(
-			{lang:'en', path:"./../languages/en.lang"},
-			{lang:'pl', path:"./../languages/pl.lang"},
-			{lang:'de', path:"./../languages/de.lang"});
+			{lang:'en', path:"./languages/en.lang"},
+			{lang:'pl', path:"./languages/pl.lang"},
+			{lang:'de', path:"./languages/de.lang"});
 	})
 	.catch(console.error);
 }
