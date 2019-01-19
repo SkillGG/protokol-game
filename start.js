@@ -19,6 +19,7 @@ if(document.querySelector('#usr_n').value || 'default'){
 		Lang.language = j.lang; // Loads language of the user
 		UserData.stage = parseInt(j.stage) || 0; // Loads stage, player's in.
 		UserData.hasStarted = parseInt(j.started) || 0; // Checks if player has past language selection
+		UserData.chapter = parseInt(j.chapter) || 0;
 		Lang.loadDictionaries(
 			{lang:'en', path:"./../languages/en.lang"},
 			{lang:'pl', path:"./../languages/pl.lang"},

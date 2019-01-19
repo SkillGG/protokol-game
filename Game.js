@@ -5,10 +5,10 @@ let justType = {type: true};
 Game.story = function(){
 
 	// MENU HERE
-	if(!UserInfo.chapter)
+	if(!UserData.chapter)
 		Game.menu();
 	else
-		Game.menu(UserInfo.chapter);
+		Game.menu(UserData.chapter);
 
 }
 
