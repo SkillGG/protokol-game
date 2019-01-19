@@ -27,8 +27,8 @@ else{
 	<!-- USER FILES -->
 	<script src='Game.js'></script>
 	<script src='CLI.js'></script>
-	<script src='userInstant.js'></script>
-	<script defer src='userDefer.js'></script>
+	<script src='instant.js'></script>
+	<script defer src='start.js'></script>
 </head>
 <body>
 	<input type='hidden' id='usr_n' value=<?php echo "\"$user\""; ?>>

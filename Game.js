@@ -5,14 +5,19 @@ let justType = {type: true};
 Game.story = function(){
 
 	// MENU HERE
-	Game.menu();
+	if(!UserInfo.chapter)
+		Game.menu();
+	else
+		Game.menu(UserInfo.chapter);
 
 }
 
 Game.menu = function(){
 
+	this.stage = 2;
+
 	Screen.clear();
-	
+
 
 }
 
@@ -33,6 +38,9 @@ Game.goTo = function(stage){
 			break;
 			case 1:
 				this.tutorial();
+			break;
+			case 2:
+				this.menu();
 			break;
 		}
 	});
