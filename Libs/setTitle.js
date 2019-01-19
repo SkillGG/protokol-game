@@ -4,7 +4,7 @@ let setTitle = function(opt){
 		if(opt.file instanceof Promise === true){
 			let response = data=>{
 				let opt = Options.parseOptions(data);
-				document.title = `${opt.title}(${opt.subtitle}) v${opt.version} by ${opt.madeby}`;
+				document.title = `${opt.title}(${opt.subtitle}) ${opt.version} by ${opt.madeby}`;
 			};
 			
 			opt.file.then(f=>{

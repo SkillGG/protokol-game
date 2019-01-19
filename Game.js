@@ -93,7 +93,9 @@ Game.tutorial = function(){
 			Lang.getCenter('tutorial1', {inter:-1, wait: 10}, [`title`]),
 			Lang.getSpan('tutorial2', {inter:5, cp:true, tF:`i:\`ign1\`,a:\`aft1\`` }),
 			Lang.getSpan('tutorial3', {cp:true, tF:`i:\`ign2\`,a:\`aft2\``}),
-			Lang.getSpan('tutorial4', {cp:true})
+			Lang.getSpan('tutorial4', {cp:true}),
+			Lang.getSpan('tutorial5', {cp:true}),
+			Lang.getSpan('tutorial6', {cp: true, tF:`i:\`ign3\`,a:\`aft2\``})
 		);
 		let CPFns = {tF:
 			{
@@ -110,7 +112,10 @@ Game.tutorial = function(){
 					cliHandle.classList.remove('flashingBorderRed');
 				},
 				ign3:()=>{
-					
+					console.log("Menu Button Flash");
+				},
+				aft3: ()=>{
+					console.log("Menu Button Unflash");
 				}
 			}, 	type:true};
 		Screen.applyToAll(true,true,true,CPFns).then($=>{
