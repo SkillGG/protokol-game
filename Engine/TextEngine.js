@@ -10,7 +10,7 @@ Array.prototype.unsetLastItem = function() {
 };
 Array.prototype.unsetItem = function(index){
 	return this.splice(index, 1)[0];
-}
+};
 Array.prototype.getAllMatchingObjectsA = function(match){
 	if(!((match === Object(match))&& 	// Check if is an object
 		typeof match !== 'function'))	// exclude functions
@@ -39,7 +39,7 @@ Array.prototype.getAllMatchingObjectsA = function(match){
 		}
 	});
 	return (r||[]).length > 0?(r||null):null;
-}
+};
 Array.prototype.getLastMatchingObjectA = function(match){
 	if(!((match === Object(match))&& 	// Check if is an object
 		typeof match !== 'function'))	// exclude functions
@@ -68,7 +68,7 @@ Array.prototype.getLastMatchingObjectA = function(match){
 		}
 	});
 	return r || null;
-}
+};
 Array.prototype.pushIfNot = function(el)
 {
 	if(this.indexOf(el) !== -1){
@@ -79,7 +79,7 @@ Array.prototype.pushIfNot = function(el)
 	}
 	this.push(el);
 	return true;
-}
+};
 Array.prototype.pushIfNotChange = function(el){
 	if(this.indexOf(el) !== -1){
 		this[this.indexOf(el)] = el;
@@ -93,7 +93,7 @@ Array.prototype.pushIfNotChange = function(el){
 	else{
 		this.push(el);
 	}
-}
+};
 Array.prototype.getFirstMatchingObjectA = function(match){
 	if(!((match === Object(match))&& 	// Check if is an object
 		typeof match !== 'function'))	// exclude functions
@@ -124,7 +124,7 @@ Array.prototype.getFirstMatchingObjectA = function(match){
 		}
 	});
 	return r || null;
-}
+};
 Element.prototype.clear = function(){
 	let change = document.createElement(this.tagName);
 	this.classList.forEach(e=>change.addClasses(e));
@@ -142,23 +142,21 @@ Element.prototype.removeAllAttributes = function(saveID, saveClasses){
 				this.attributes.removeNamedItem(e.nodeName);
 		}
 	});
-}
+};
 Element.prototype.addClasses = function(...c){
 	c.forEach(e=>this.classList.add(e));
-}
+};
 Element.prototype.clearClass = function(){
 	while(this.classList.length > 0)
 		this.classList.remove(this.classList.item(0));
-}
+};
 Element.prototype.classEqual = function(...c){
 	this.clearClass();
 	c.forEach(e=>this.addClasses(e));
-}
-
+};
 RegExp.toRegExp = function(text){
 	return new RegExp(text.replace(/([\\\/$^.])/g, `\\$1`));
-}
-
+};
 RegExp.concat = function (flags, ...regexs){
 	let srcs = "";
 	for(r in regexs){
@@ -172,24 +170,24 @@ RegExp.concat = function (flags, ...regexs){
 	let rex = new RegExp(srcs, flags);
 	// console.log(rex);
 	return rex;
-}
+};
 
 let Exts = {};
 Exts.DIV = ()=>{
 	return document.createElement('div');
-}
+};
 Exts.INPUT = (type, pholder)=>{
 	let r = document.createElement('input');
 	r.type = type;
 	r.placeholder = pholder;
 	return r;
-}
+};
 Exts.BTN = (value)=>{
 	let b = document.createElement('input');
 	b.type = 'button';
 	b.value = value;
 	return b;
-}
+};
 //EXTENDS FUNCTIONS
 
 let Typer = {};

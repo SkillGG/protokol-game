@@ -19,4 +19,6 @@ clickToProceed{`<span class='p15 black'><div class='clickProceed square10' title
 tutorial1{`<span class='p30 lime'>Tutorial</span>`}
 tutorial2{`<span class='p20 lime'>So here you got a Screen.<br> It is a field where you were spend most of your time.</span>`}
 tutorial3{`<span class='p20 lime'>Yellow bar below is a text input. You can do almost everything with it. And sometimes you will have to use it.</span>`}
-tutorial4{`<span class='p20 lime'>On the right side you got Interface. It can be managed via text field, so you really don't have to use mouse ever, but you can ue mouse(touchscreen) to do so.</span>`}
+tutorial4{`<span class='p20 lime'>On the right side you got Interface. It is possible to change it via text field, so if you got no mouse you don't have to worry about this.</span>`}
+tutorial5{`<span class='p20 lime'>Interface is a place, where you will be checking your gameplay status. It also has an</span>`}
+tutorial6{`Menu Button.`}

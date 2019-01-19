@@ -11,7 +11,7 @@ else{
 <head>
 	<meta name="viewport" content="width: device-width, scale: 1, height: device-height">
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="TextGame.css">
+	<link rel="stylesheet" type="text/css" href="./Engine/TextEngine.css">
 
 	<!-- USER CSS STYLES -->
 	<link rel="stylesheet" type="text/css" href="anims.css">
@@ -22,7 +22,7 @@ else{
 	<script src='./Libs/setTitle.js'></script>
 
 	<!-- THIS LIBRARY -->
-	<script src='TextGame.js'></script>
+	<script src='./Engine/TextEngine.js'></script>
 
 	<!-- USER FILES -->
 	<script src='Game.js'></script>

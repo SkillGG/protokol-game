@@ -1,10 +1,11 @@
 
 let Options = {};
 
-let NameRegex = /name: *([^\n\r]+)/i;
-let SubNameRegex = /sub: *([^\n\r]+)/i;
-let VersionRegex = /version: *([^\n\r]+)/i;
-let MadeByRegex = /madeby: *([^\n\r]+)/i;
+let NameRegex = /^@name: *([^\n\r]+$)/i;
+let SubNameRegex = /^@sub: *([^\n\r]+$)/i;
+let VersionRegex = /^@version: *([0-9_\-ab ]+)$/i;
+let NameVersionRegex = /^@version: *([^\n\r]+)$/i;
+let MadeByRegex = /^@madeby: *([^\n\r]+)$/i;
 
 Options.parseOptions = (data) => {
 
@@ -31,6 +32,16 @@ Options.parseOptions = (data) => {
 		if(verExec)
 			if(verExec.length >= 2)
 				reto.version = verExec[1];
+
+		if(!reto.version){
+			verExec = NameVersionRegex.exec(cmd);
+			if(verExec)
+				if(verExec.length >= 2){
+					reto.version = verExec[1] || "";
+				}
+		}
+		else
+			reto.version = "v. "+reto.version;
 
 		//Made By
 		let madeExec = MadeByRegex.exec(cmd);
