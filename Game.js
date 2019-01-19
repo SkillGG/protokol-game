@@ -4,9 +4,15 @@ let justType = {type: true};
 
 Game.story = function(){
 
-	Screen.clear();
+	// MENU HERE
+	Game.menu();
 
-	// STORY HERE
+}
+
+Game.menu = function(){
+
+	Screen.clear();
+	
 
 }
 
