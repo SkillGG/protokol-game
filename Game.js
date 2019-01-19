@@ -26,6 +26,8 @@ Game.menu = function(chapter){
 			Lang.getCenter(``)
 		);
 
+		console.log("TEST");
+
 	}
 	else{
 		// MAIN MENU
