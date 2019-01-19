@@ -40,7 +40,7 @@ Game.goTo = function(stage){
 				this.tutorial();
 			break;
 			case 2:
-				this.menu();
+				this.story();
 			break;
 		}
 	});
