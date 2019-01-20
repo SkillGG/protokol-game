@@ -22,9 +22,11 @@ Game.menu = function(chapter){
 	else if(chapter === 0){
 		// FIRST TIME MENU
 
-		// Screen.addLines(
-		// 	Lang.getCenter(``)
-		// );
+		Screen.addLines(
+			Lang.getCenter(`menu1`, 0, []),
+			`<center>${Lang.getSpan('menuPlay1', 0, [])}${chapter}${Lang.getSpan('menuPlay2', 0, [])}</center>`,
+			Lang.getSpan('menuOptions', 0)
+		);
 
 	}
 	else{
@@ -49,7 +51,8 @@ Game.goTo = function(stage){
 				this.start();
 			break;
 			case 1:
-				this.tutorial();
+				this.tutorial()
+				.then($=>this.story()).catch(console.error);
 			break;
 			case 2:
 				this.story();
@@ -69,6 +72,13 @@ Game.goBack = function(){
 		switch(this.prevS){
 			case 0:
 				this.start();
+			break;
+			case 1:
+				this.tutorial()
+				.then($=>this.story()).catch(console.error);
+			break;
+			case 2:
+				this.story();
 			break;
 		}
 	});
@@ -90,12 +100,22 @@ Game.tutorial = function(){
 		tutorial2
 		*/
 		Screen.addLines(
-			Lang.getCenter('tutorial1', {inter:-1, wait: 10}, [`title`]),
-			Lang.getSpan('tutorial2', {inter:5, cp:true, tF:`i:\`ign1\`,a:\`aft1\`` }),
-			Lang.getSpan('tutorial3', {cp:true, tF:`i:\`ign2\`,a:\`aft2\``}),
-			Lang.getSpan('tutorial4', {cp:true}),
-			Lang.getSpan('tutorial5', {cp:true}),
-			Lang.getSpan('tutorial6', {cp: true, tF:`i:\`ign3\`,a:\`aft2\``})
+			Lang.getCenter('tutorialMain', {inter:-1, wait: 10}, [`title`, 'p30', 'lime']),
+			`<ol class='green p20'><li>`+
+			Lang.getSpan('tutorial1', {inter: 10, wait: 10, cp:false, tF:`i:\`ign1\``})+
+			`<br>`+
+			Lang.getSpan('tutorial1_1', {inter: 10, wait: 100, cp: false})+
+			`<br>`+
+			Lang.getSpan('tripleDots', {inter: 500, wait: 10, cp:false, tF:`a:\`aft1\``})+
+			Lang.getSpan('tutorial2', {inter: 10, wait: 100, cp:false})+
+			Lang.getSpan('tripleDots', {inter: 500, wait: 10, cp:true})+
+			`</li><br>`+
+			Lang.getSpan('tutorial3', {inter: 10, wait: 10, cp: false})+
+			Lang.getSpan('tutorial4', {inter: 10, wait:1500, cp: false})+
+			Lang.getSpan('tripleDots', {inter: 500, wait: 100, cp:false, tF:`i:\`ign2\``})+
+			`<br>`+
+			Lang.getSpan('tutorial5', {inter: 10, wait: 2000, cp:true, tF:`i:\`ign3\``})+
+			`</li></ol>`
 		);
 		let CPFns = {tF:
 			{
@@ -106,20 +126,14 @@ Game.tutorial = function(){
 					Screen.e.classList.remove('flashingBorderRed');
 				},
 				ign2:()=>{
-					cliHandle.addClasses('flashingBorderRed');
-				},
-				aft2:()=>{
-					cliHandle.classList.remove('flashingBorderRed');
+					cliHandle.hide();
 				},
 				ign3:()=>{
-					console.log("Menu Button Flash");
-				},
-				aft3: ()=>{
-					console.log("Menu Button Unflash");
+					Interface.hide();
 				}
 			}, 	type:true};
 		Screen.applyToAll(true,true,true,CPFns).then($=>{
-			
+			res();
 		});
 
 		// TUTORIAL END
@@ -153,14 +167,14 @@ Game.start = function(){
 	disclaimerPt5
 	*/
 
-	Screen.addLines(Lang.getSpan('disclaimer1', {inter: 10}, ['p30']),
+	Screen.addLines(Lang.getSpan('disclaimer1', {inter: 10}, ['p30', 'red']),
 		``,
-		Lang.getSpan('disclaimerPt1', {inter: -1, wait:500}, ['p20']),
-		Lang.getSpan('disclaimerPt2', {inter: -1, wait:500}, ['p20']),
-		Lang.getSpan('disclaimerPt3', {inter: -1, wait:500}, ['p20']),
-		Lang.getSpan('disclaimerPt4', {inter: -1, wait:500}, ['p20']),
-		Lang.getSpan('disclaimerPt5', {inter: -1, wait:500}, ['p20'])+
-		Lang.getSpan('clickToProceed', {wait:1000, inter:-1,cp:true}));
+		Lang.getSpan('disclaimerPt1', {inter: -1, wait:500}, ['p20', 'green']),
+		Lang.getSpan('disclaimerPt2', {inter: -1, wait:500}, ['p20', 'green']),
+		Lang.getSpan('disclaimerPt3', {inter: -1, wait:500}, ['p20', 'green']),
+		Lang.getSpan('disclaimerPt4', {inter: -1, wait:500}, ['p20', 'green']),
+		Lang.getSpan('disclaimerPt5', {inter: -1, wait:500}, ['p20', 'green'])+
+		Lang.getSpan('clickToProceed', {wait:1000, inter:-1,cp:true}, ['p15', 'black']));
 	
 	//Show and Type text on Screen
 	Screen.applyToAll(true,true,true,justType).then(()=>{
@@ -170,38 +184,40 @@ Game.start = function(){
 		/*
 		begin1
 		*/
-		Screen.addLines(Lang.getSpan('begin1', {inter:10}));
-		Screen.applyToAll(true,true,true,justType).then(()=>{
-			
-			// Set Alias for yes/no options for tutorial
-			Cli.alias('yesH2P',eval(eval(`Lang.${Lang.language}['yesFilter']`)), ()=>{
+		Screen.addLines(Lang.getSpan('begin1', {inter:10}, ['crimson', 'p30']));
+		Screen.applyToAll(true,true,false,justType).then(()=>{
+			Screen.applyToAll(true,true,true,false).then(()=>{
 
-				// PLAYER SAID YES TO TUTORIAL
+				// Set Alias for yes/no options for tutorial
+				Cli.alias('yesH2P',eval(eval(`Lang.${Lang.language}['yesFilter']`)), ()=>{
 
-				Screen.clear();Screen.clearStorage();
+					// PLAYER SAID YES TO TUTORIAL
 
-				// RESET EVENT TO NOT TRIGGER ANYMORE
-				Cli.reset('yesH2P');
-				Cli.reset('noH2P'); 
+					Screen.clear();Screen.clearStorage();
 
-				// Play through tutorial then play story mode
-				Game.tutorial().then($=>{Game.story();});
+					// RESET EVENT TO NOT TRIGGER ANYMORE
+					Cli.reset('yesH2P');
+					Cli.reset('noH2P'); 
 
-			});
-			Cli.alias('noH2P',eval(eval(`Lang.${Lang.language}['noFilter']`)), ()=>{
+					// Play through tutorial then play story mode
+					Game.tutorial().then($=>{Game.story();});
 
-				//PLAYER SAID NO TO HOW2PLAY
+				});
+				Cli.alias('noH2P',eval(eval(`Lang.${Lang.language}['noFilter']`)), ()=>{
 
-				Screen.clear();Screen.clearStorage();
+					//PLAYER SAID NO TO HOW2PLAY
 
-				// RESET EVENT TO NOT TRIGGER ANYMORE
-				Cli.reset('yesH2P');
-				Cli.reset('noH2P');
+					Screen.clear();Screen.clearStorage();
 
-				// Play through story mode
-				Game.story();
+					// RESET EVENT TO NOT TRIGGER ANYMORE
+					Cli.reset('yesH2P');
+					Cli.reset('noH2P');
 
-			});
+					// Play through story mode
+					Game.story();
+
+				});
+			}).catch(console.error);
 		}).catch(console.error);
 	});
 	// Directly after typing
