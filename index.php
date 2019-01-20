@@ -32,7 +32,7 @@ else{
 </head>
 <body>
 	<input type='hidden' id='usr_n' value=<?php echo "\"$user\""; ?>>
-	<div id='grid' >
+	<div id='grid' style="grid-template-areas: 'info gui''info gui''console console'">
 		<div id='info'></div>
 		<div id='playerInput'>
 			<input type='text' id='playerInputInput'>
