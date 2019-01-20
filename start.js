@@ -1,7 +1,7 @@
 let Console = {e:document.querySelector('div#console')};
 let grid = document.querySelector('div#grid');
 let cli = document.querySelector('#playerInput input');
-let cliHandle = document.querySelector('#playerInput');
+let cliHandle = {e:document.querySelector('#playerInput')};
 let Screen = {e:document.createElement('div')};
 let Cli = new CLI(Screen,Console, Lang, Typer, Game);
 let Interface = {e: document.querySelector('#Interface')};
@@ -19,7 +19,7 @@ if(document.querySelector('#usr_n').value || 'default'){
 		Lang.language = j.lang; // Loads language of the user
 		UserData.stage = parseInt(j.stage) || 0; // Loads stage, player's in.
 		UserData.hasStarted = parseInt(j.started) || 0; // Checks if player has past language selection
-		UserData.chapter = parseInt(j.chapter) || 0;
+		UserData.chapter = parseInt(j.chapter) || 0; // Loads COMPLETED chapters
 		Lang.loadDictionaries(
 			{lang:'en', path:"./languages/en.lang"},
 			{lang:'pl', path:"./languages/pl.lang"},
@@ -32,6 +32,26 @@ Screen.lines = [];
 Screen.storage = [];
 Console.lines = [];
 Interface.elements = [];
+
+cliHandle.hide = function(){
+	this.e.style.display = "none";
+	grid.style.gridTemplateAreas = grid.style.gridTemplateAreas.replace(/('|")(?:input) ([^ ]+)\1 ?/g, "$1info $2$1");
+}
+
+cliHandle.show = function(){
+	this.e.style.display = "initial";
+	grid.style.gridTemplateAreas = grid.style.gridTemplateAreas.replace(/('|")(?:[^ ]+) ([^ ]+)\1(?! ?(?:'|"))/, "$1input $2$1");
+}
+
+Interface.hide = function(){
+	this.e.style.display = "none";
+	grid.style.gridTemplateAreas = grid.style.gridTemplateAreas.replace(/('|")([^ ]+) (?:gui)\1 ?/g, "$1$2 $2$1");
+}
+
+Interface.show = function(){
+	this.e.style.display = "initial";
+	grid.style.gridTemplateAreas = grid.style.gridTemplateAreas.replace(/('|")([^ ]+) ([^ ]+)\1 ?/g, "$1$2 gui$1");
+}
 
 Interface.setElements = function(){
 	this.e.clear();
@@ -75,13 +95,13 @@ Screen.replaceEachLine = function(replacementArray){
 
 Console.show = ()=>{
 	Console.e.style.display = 'initial';
-	grid.style.gridTemplateAreas = `'info gui' 'input gui' 'console console'`;
+	grid.style.gridTemplateAreas = `'info gui' 'info gui' 'console console'`;
 	cli.style.fontSize = 'initial';
 }
 
 Console.hide = ()=>{
 	Console.e.style.display = 'none';
-	grid.style.gridTemplateAreas = `'info gui''info gui' 'input gui'`;
+	grid.style.gridTemplateAreas = grid.style.gridTemplateAreas.replace(/console console/, "input gui");
 	cli.style.fontSize = '40px';
 }
 
@@ -259,7 +279,7 @@ let startGame = ()=>{
 		chooseLanguage1
 		chooseLanguage2
 		*/
-		Screen.addLines(Lang.getCenter('startScreen1', 0, ['p25']),
+		Screen.addLines(Lang.getCenter('startScreen1', 0, ['p25', 'title']),
 			`<b class='p20'>`+
 			Lang.getSpan('chooseLanguage1')+
 			`&emsp;<select id='languageSelection' val='${Lang.language || ""}'><option value='en'>English</option><option value='de'>Deutsch</option><option value='pl'>Polski</option></select>`+
