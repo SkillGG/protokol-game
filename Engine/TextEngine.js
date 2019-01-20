@@ -361,7 +361,7 @@ let Lang = {};
 					let lang = e2.getAttribute('lang');
 					let get = e2.getAttribute('get');
 					newE.innerHTML = 
-					( 
+					(
 						eval(`Lang.${lang}.${get}`) ||
 						 ( 
 						 	( 
@@ -371,14 +371,17 @@ let Lang = {};
 						 				return Lang.en[get];
 						 			window.onclick=()=>{location.reload();};
 						 			newE.removeAllAttributes();
+						 			newE.classEqual('typeText');
+						 			newE.setAttribute('charInter','1');
 						 			return `<span class='red'> MISSING: ${get}</span>`;
-						 		} 
+						 		}
 						 	)()
 						 ) 
 					);
 					//newE.innerHTML = (eval(`Lang.${lang}.${get}`)===undefined ? (!!(console.error(`${lang} has no ${get} translation!`)))?`?`:Lang.en[get]===undefined?((((()=>{})&&(window.onclick=()=>{location.reload();}))?`<span class='red'> MISSING: ${get}</span>`:""):Lang.en[get] : eval(`Lang.${lang}.${get}`));
 				}
-				e.getElementsByClassName('langText').item(i2).replaceWith(newE);
+				if(e.getElementsByClassName('langText').item(i2))
+					e.getElementsByClassName('langText').item(i2).replaceWith(newE);
 			});
 		});
 	}
@@ -552,7 +555,7 @@ let Lang = {};
 
 			// IGNITE SET
 			if(tFO.i){
-				let ign = eval(`cpF.${tFO.i}`);
+				let ign = eval(`tF.${tFO.i}`);
 				if(ign){
 					if(typeof ign === 'function')
 						ignite = ign;
@@ -561,7 +564,7 @@ let Lang = {};
 
 			// AFTER TYPE SET
 			if(tFO.a){
-				let aft = eval(`cpF.${tFO.a}`);
+				let aft = eval(`tF.${tFO.a}`);
 				if(aft){
 					if(typeof aft === 'function')
 						after = aft;
