@@ -35,11 +35,15 @@ tutorialMain{`Tutorial`}
 tutorial1{`This (flashing red) is called a Screen. It is a rectangle in which you will`}
 tutorial1_1{`Wait! Wait! Wait!`}
 tutorial2{`<br>You know how to click things on screen don't you? It's simple.<br>It is just a simple text game. It should not be complicated`}
-tutorial3{`<li>But wait.<br> What are this yellow box below and this empty space over to the right?`}
+tutorial3{`But wait.<br> What are this yellow box below and this empty space over to the right?`}
 tutorial4{`Nothing`}
 tutorial5{`What are you talking about? I don't see anything there.`}
+tutorial6{`Okay. <br> So. Now you are ready to play. And enjoy.	`}
 
 // Menu options
-menu1{``}
-menuPlay1{``}
-menuOptions{``}
+menu1{`MENU`}
+menuPlay1{`New Game`}
+menuOptions{`Options`}
+menuPlay2{`Continue (Chapter `}
+menuPlay2_1{`)`}
+menuPlay3{`Chapter Select`}
