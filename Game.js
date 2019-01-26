@@ -5,8 +5,11 @@ let justType = {type: true};
 Game.story = function(){
 
 	// MENU HERE
-	if(!UserData.chapter)
+	if(!UserData.chapter){
+		cliHandle.hide();
+		Interface.hide();
 		Game.menu(0);
+	}
 	else
 		Game.menu(UserData.chapter);
 }
@@ -14,7 +17,7 @@ Game.story = function(){
 Game.menu = function(chapter){
 
 	this.stage = 2;
-
+	
 	Screen.clear();
 
 	if(!chapter && chapter !== 0)
@@ -24,9 +27,10 @@ Game.menu = function(chapter){
 
 		Screen.addLines(
 			Lang.getCenter(`menu1`, 0, []),
-			`<center>${Lang.getSpan('menuPlay1', 0, [])}${chapter}${Lang.getSpan('menuPlay2', 0, [])}</center>`,
+			`<center>${Lang.getSpan('menuPlay1', 0, [])}`,
 			Lang.getSpan('menuOptions', 0)
 		);
+		Screen.applyToAll(true,true,true);
 
 	}
 	else{
@@ -100,21 +104,23 @@ Game.tutorial = function(){
 		tutorial2
 		*/
 		Screen.addLines(
-			Lang.getCenter('tutorialMain', {inter:-1, wait: 10}, [`title`, 'p30', 'lime']),
+			Lang.getCenter('tutorialMain', {inter:-1, wait: 10}, [`unselectable`,`title`, 'p30', 'lime']),
 			`<ol class='green p20'><li>`+
-			Lang.getSpan('tutorial1', {inter: 10, wait: 10, cp:false, tF:`i:\`ign1\``})+
+			Lang.getSpan('tutorial1', {inter: 10, wait: 10, cp:false, tF:`i:\`ign1\``}, [`unselectable`])+
 			`<br>`+
-			Lang.getSpan('tutorial1_1', {inter: 10, wait: 100, cp: false})+
+			Lang.getSpan('tutorial1_1', {inter: 10, wait: 100, cp: false},[`unselectable`])+
 			`<br>`+
-			Lang.getSpan('tripleDots', {inter: 500, wait: 10, cp:false, tF:`a:\`aft1\``})+
-			Lang.getSpan('tutorial2', {inter: 10, wait: 100, cp:false})+
-			Lang.getSpan('tripleDots', {inter: 500, wait: 10, cp:true})+
+			Lang.getSpan('tripleDots', {inter: 500, wait: 10, cp:false, tF:`a:\`aft1\``}, [`unselectable`])+
+			Lang.getSpan('tutorial2', {inter: 10, wait: 100, cp:false}, [`unselectable`])+
+			Lang.getSpan('tripleDots', {inter: 500, wait: 10, cp:true}, [`unselectable`])+
 			`</li><br>`+
-			Lang.getSpan('tutorial3', {inter: 10, wait: 10, cp: false})+
-			Lang.getSpan('tutorial4', {inter: 10, wait:1500, cp: false})+
-			Lang.getSpan('tripleDots', {inter: 500, wait: 100, cp:false, tF:`i:\`ign2\``})+
+			Lang.getSpan('tutorial3', {inter: 10, wait: 10, cp: false}, [`unselectable`])+
 			`<br>`+
-			Lang.getSpan('tutorial5', {inter: 10, wait: 2000, cp:true, tF:`i:\`ign3\``})+
+			Lang.getSpan('tutorial4', {inter: 10, wait:1500, cp: false}, [`unselectable`])+
+			Lang.getSpan('tripleDots', {inter: 500, wait: 100, cp:false, tF:`i:\`ign2\``}, [`unselectable`])+
+			`<br>`+
+			Lang.getSpan('tutorial5', {inter: 10, wait: 2000, cp: false, tF:`i:\`ign3\``}, [`unselectable`])+
+			Lang.getSpan(`tutorial6`, {inter: 10, wait: 1000, cp:true}, ['unselectable'])+
 			`</li></ol>`
 		);
 		let CPFns = {tF:
@@ -135,7 +141,6 @@ Game.tutorial = function(){
 		Screen.applyToAll(true,true,true,CPFns).then($=>{
 			res();
 		});
-
 		// TUTORIAL END
 		/*
 			Screen.addLines(Lang.getSpan('clickToProceed', {wait:1000, inter:-1, cp:true}));
@@ -167,14 +172,14 @@ Game.start = function(){
 	disclaimerPt5
 	*/
 
-	Screen.addLines(Lang.getSpan('disclaimer1', {inter: 10}, ['p30', 'red']),
+	Screen.addLines(Lang.getSpan('disclaimer1', {inter: 10}, [`unselectable`,'p30', 'red']),
 		``,
-		Lang.getSpan('disclaimerPt1', {inter: -1, wait:500}, ['p20', 'green']),
-		Lang.getSpan('disclaimerPt2', {inter: -1, wait:500}, ['p20', 'green']),
-		Lang.getSpan('disclaimerPt3', {inter: -1, wait:500}, ['p20', 'green']),
-		Lang.getSpan('disclaimerPt4', {inter: -1, wait:500}, ['p20', 'green']),
-		Lang.getSpan('disclaimerPt5', {inter: -1, wait:500}, ['p20', 'green'])+
-		Lang.getSpan('clickToProceed', {wait:1000, inter:-1,cp:true}, ['p15', 'black']));
+		Lang.getSpan('disclaimerPt1', {inter: -1, wait:500}, [`unselectable`,'p20', 'green']),
+		Lang.getSpan('disclaimerPt2', {inter: -1, wait:500}, [`unselectable`,'p20', 'green']),
+		Lang.getSpan('disclaimerPt3', {inter: -1, wait:500}, [`unselectable`,'p20', 'green']),
+		Lang.getSpan('disclaimerPt4', {inter: -1, wait:500}, [`unselectable`,'p20', 'green']),
+		Lang.getSpan('disclaimerPt5', {inter: -1, wait:500}, [`unselectable`,'p20', 'green'])+
+		Lang.getSpan('clickToProceed', {wait:1000, inter:-1,cp:true}, [`unselectable`,'p15', 'black']));
 	
 	//Show and Type text on Screen
 	Screen.applyToAll(true,true,true,justType).then(()=>{
@@ -184,7 +189,7 @@ Game.start = function(){
 		/*
 		begin1
 		*/
-		Screen.addLines(Lang.getSpan('begin1', {inter:10}, ['crimson', 'p30']));
+		Screen.addLines(Lang.getSpan('begin1', {inter:10}, [`unselectable`,'crimson', 'p30']));
 		Screen.applyToAll(true,true,false,justType).then(()=>{
 			Screen.applyToAll(true,true,true,false).then(()=>{
 
