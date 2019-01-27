@@ -1,0 +1,44 @@
+//AUTO GENERATED TREE
+tree Main:
+	node click StartGame:
+		->Menu
+	end node: StartGame
+	node lots Menu:
+		Main Menu
+		->NewGame#New
+		->Options#Options
+		->If1# 
+	end node: Menu
+	node click Options:
+		Menu
+		->Menu# 
+	end node: Options
+	node click NewGame:
+		->Introduction
+	end node: NewGame
+	node click Introduction:
+		Introduction
+		->Chapter0
+	end node: Introduction
+	node click Chapter0:
+		Ch0
+		->Chapter1
+	end node: Chapter0
+	node click Chapter1:
+		Ch1
+	end node: Chapter1
+	node dual If1:
+		User.Started
+		->Menu#Else
+		->Chapter# 
+	end node: If1
+	node click Chapter:
+		Select
+		->If2#2
+	end node: Chapter
+	node click If2:
+		User.Chapter1.unlocked
+		->Chapter1
+	end node: If2
+end tree: Main
+//AUTO GENERATED TREE

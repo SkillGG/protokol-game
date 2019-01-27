@@ -1,5 +1,12 @@
 {
-	"started":0,
-	"lang":"en",
-	"stage":0
+	"lang":"NONE",
+	"chapters":{
+		"number": -1,
+		"dialog": 0,
+		"unlocked":{
+			"menu":true,
+			"zero":false,
+			"one":false
+		}
+	}
 }

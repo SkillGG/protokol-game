@@ -67,6 +67,22 @@ function htmlEncodeSafe(match, char, tag, close, off, whole){
 	return [char, tag, close].join('');
 }
 
+CLI.prototype.get = function(name){
+	let ptr = -1;
+	this.aliases.forEach((e,i,a)=>{
+		if(ptr !== -1)
+			return;
+		else{
+			if(e.n === name)
+				ptr = i;
+		}
+	});
+	if(ptr !== -1){
+		return null;
+	}
+	return aliases[ptr];
+}
+
 /*
 	Resets alias
 */

@@ -10,23 +10,21 @@ let Audio = {access: false};
 
 let UserData = {};
 
-if(document.querySelector('#usr_n').value || 'default'){
-	fetch('./users/'+document.querySelector('#usr_n').value+".json")
-	.then((r)=>{
-		return r.json();
-	})
-	.then((j)=>{
-		Lang.language = j.lang; // Loads language of the user
-		UserData.stage = parseInt(j.stage) || 0; // Loads stage, player's in.
-		UserData.hasStarted = parseInt(j.started) || 0; // Checks if player has past language selection
-		UserData.chapter = parseInt(j.chapter) || 0; // Loads COMPLETED chapters
-		Lang.loadDictionaries(
-			{lang:'en', path:"./languages/en.lang"},
-			{lang:'pl', path:"./languages/pl.lang"},
-			{lang:'de', path:"./languages/de.lang"});
-	})
-	.catch(console.error);
-}
+let username = document.querySelector('#usr_n').value || 'default';
+fetch('./users/'+username+".json")
+.then((r)=>{
+	return r.json();
+})
+.then((j)=>{
+	UserData.language = j.lang;
+	UserData.chapters = j.chapters;
+
+	Lang.loadDictionaries(
+		{lang:'en', path:"./languages/en.lang"},
+		{lang:'pl', path:"./languages/pl.lang"},
+		{lang:'de', path:"./languages/de.lang"});
+})
+.catch(console.error);
 
 Screen.lines = [];
 Screen.storage = [];
@@ -271,32 +269,11 @@ Screen.addLines(`<center style='font-size: 35px'>Loading...</center>`);
 let startGame = ()=>{
 	Screen.clear();
 	Screen.clearStorage();
-	if(!UserData.hasStarted)
-	{
-		/*
-		startScreen1
-		chooseLanguage2
-		chooseLanguage1
-		chooseLanguage2
-		*/
-		Screen.addLines(Lang.getCenter('startScreen1', 0, ['p25', 'title']),
-			`<b class='p20'>`+
-			Lang.getSpan('chooseLanguage1')+
-			`&emsp;<select id='languageSelection' val='${Lang.language || ""}'><option value='en'>English</option><option value='de'>Deutsch</option><option value='pl'>Polski</option></select>`+
-			Lang.getSpan(`chooseLanguage2`)+
-			`</b>`);
-		Screen.getLines()[1].getElementsByTagName('select').item(0).onchange = (e)=>{
-			Lang.language = e.target.value;
-			Lang.retranslateTo(Screen.getLines());
-			Screen.applyToAll(false,false,true,false);
-		};
-		Screen.applyToAll(true,true,true,false);
-	
-		Cli.alias('start', /start(?:[^]*)?/i, Game.start);
-	}
 	clearInterval(gameInit);
 
-	Game.goTo(UserData.stage || 0);
+	if(UserData.language === "NONE"){
+		Game.firstLangSelect(Game.menu());
+	}
 }
 
 let gameInit = setInterval($=>{
