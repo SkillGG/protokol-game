@@ -35,7 +35,10 @@ Game.menu = function(chapter){
 		chapter = this.chapter;
 
 	//TODO: Menu
-
+	//Screen.addLines(
+	//	
+	//	);
+	//Screen.applyToAll(true,true,0);
 
 }
 

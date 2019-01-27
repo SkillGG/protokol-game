@@ -28,6 +28,7 @@ else{
 	<script src='Game.js'></script>
 	<script src='CLI.js'></script>
 	<script src='instant.js'></script>
+	<script defer src='ConsoleNScreen.js'></script>
 	<script defer src='start.js'></script>
 </head>
 <body>
