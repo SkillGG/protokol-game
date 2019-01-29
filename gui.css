@@ -5,6 +5,15 @@ html, body {
 	height: 100%;
 }
 
+.menuTitle {
+	font-size: 25px;
+	margin: 10px;
+}
+
+.menuOption {
+	cursor: pointer;
+}
+
 .unselectable {
 	-moz-user-select: none;
 	-webkit-user-select: none;

@@ -17,7 +17,6 @@ else{
 	<link rel="stylesheet" type="text/css" href="anims.css">
 	<link rel="stylesheet" type="text/css" href="gui.css">
 
-	<!-- THOSE ARE LIBRARIES NEEDED FOR -min VERSION -->
 	<script src='./Libs/options.js'></script>
 	<script src='./Libs/setTitle.js'></script>
 

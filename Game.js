@@ -35,10 +35,28 @@ Game.menu = function(chapter){
 		chapter = this.chapter;
 
 	//TODO: Menu
-	//Screen.addLines(
-	//	
-	//	);
-	//Screen.applyToAll(true,true,0);
+	Screen.addLines(
+		Lang.getCenter('menu_Title', 0, [`unselectable`, `menuTitle`]),
+		Lang.getCenter('menu_New', 0, [`unselectable`, `menuOption`]),
+		`<center class='menuOption'>`+
+		Lang.getSpan('menu_Continue', 0, [`unselectable`])+` ${UserData.chapters.number!==-1?`(${UserData.chapters.number})`:""}`+
+		`</center>`,
+		Lang.getCenter(`menu_Options`, 0, [`unselectable`, `menuOption`])
+		);
+	Screen.applyToAll(true,true,0);
+
+	if(UserData.chapters.number === -1){
+		Screen.getLines().item(2).getElementsByTagName('center').item(0).style.cursor = "default";
+		Screen.getLines().item(2).getElementsByTagName('center').item(0).onclick = ()=>{
+			this.newGame();
+		}
+	}
+	Screen.getLines().item(1).onclick = ()=>{
+		this.newGame();
+	}
+	Screen.getLines().item(3).onclick = ()=>{
+		this.optionMenu();
+	}
 
 }
 

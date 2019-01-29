@@ -41,9 +41,7 @@ tutorial5{`What are you talking about? I don't see anything there.`}
 tutorial6{`Okay. <br> So. Now you are ready to play. And enjoy.	`}
 
 // Menu options
-menu1{`MENU`}
-menuPlay1{`New Game`}
-menuOptions{`Options`}
-menuPlay2{`Continue (Chapter `}
-menuPlay2_1{`)`}
-menuPlay3{`Chapter Select`}
+menu_Title{`Main Menu`}
+menu_New{`New Game`}
+menu_Options{`Options`}
+menu_Continue{`Continue`}
