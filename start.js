@@ -29,10 +29,7 @@ let startGame = ()=>{
 	Screen.clear();
 	Screen.clearStorage();
 	clearInterval(gameInit);
-
-	if(UserData.language === "NONE"){
-		Game.firstLangSelect(Game.menu);
-	}
+	Game.start(false);
 }
 
 let gameInit = setInterval($=>{
