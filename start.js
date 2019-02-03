@@ -10,7 +10,7 @@ fetch('./users/'+username+".json")
 .then((j)=>{
 	UserData.language = j.lang;
 	UserData.chapters = j.chapters;
-
+	
 	Lang.loadDictionaries(
 		{lang:'en', path:"./languages/en.lang"},
 		{lang:'pl', path:"./languages/pl.lang"},
@@ -29,7 +29,7 @@ let startGame = ()=>{
 	Screen.clear();
 	Screen.clearStorage();
 	clearInterval(gameInit);
-	Game.start(false);
+	Game.start(UserData);
 }
 
 let gameInit = setInterval($=>{

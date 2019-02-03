@@ -168,11 +168,11 @@ Screen.applyToAll = (lSTL, lT, cP, tT)=>{
 			});
 		}
 		else{
-			return new Promise((res,rej)=>res());
+			return new Promise((r)=>r());
 		}
 	}
 	else
-		return new Promise((res,rej)=>res());
+		return new Promise((r)=>r());
 }
 
 Console.scrollDown = function(){
