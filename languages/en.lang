@@ -11,37 +11,15 @@ clickToProceed{`<div class='clickProceed square10' title='(Click anywhere to pro
 tripleDots{`...`}
 yesFUpper{`Yes`}
 yesAUpper{`YES`}
-yesLower{`yes`}
+yes{`yes`}
 noFUpper{`No`}
 noAUpper{`NO`}
-noLower{`no`}
+no{`no`}
 
-// Start Screen
-startScreen1{`Welcome to <b class='blue'>proto</b><b class='red'>Kol</b>!`}
-chooseLanguage1{`Please select your language`}
-chooseLanguage2{` and then type <span class='p15'>(or click) </span><code class='typeIn'>start</code> in <span class='yellow'>yellow</span> box below.`}
+//MAIN MENU
+menu{`Main Menu`}
+menuPlay{`New Game`}
+menuContinue{`Continue`}
+menuOptions{`Options`}
 
-// Disclaimers
-disclaimer1{`Here is a quick disclaimer before playing:`}
-disclaimerPt1{`1. <b>If you're playing on mobile or with resolution lower than 1366x768 please change your resolution/rotate your screen to landscape view for better experience.</b> `}
-disclaimerPt2{`2. <b>PLACEHOLDER 1</b> `}
-disclaimerPt3{`3. <b>PLACEHOLDER 2</b> `}
-disclaimerPt4{`4. <b>PLACEHOLDER 3</b> `}
-disclaimerPt5{`5. <b>PLACEHOLDER 4</b> `}
-
-// Tutorial values
-begin1{`Do you want to learn how to play?<br><center><b><code get='yesFUpper' class='langText typeIn p15 lime'></code> <code class='typeIn p15 lime'>No</code></b></center>`}
-tutorialMain{`Tutorial`}
-tutorial1{`This (flashing red) is called a Screen. It is a rectangle in which you will`}
-tutorial1_1{`Wait! Wait! Wait!`}
-tutorial2{`<br>You know how to click things on screen don't you? It's simple.<br>It is just a simple text game. It should not be complicated`}
-tutorial3{`But wait.<br> What are this yellow box below and this empty space over to the right?`}
-tutorial4{`Nothing`}
-tutorial5{`What are you talking about? I don't see anything there.`}
-tutorial6{`Okay. <br> So. Now you are ready to play. And enjoy.	`}
-
-// Menu options
-menu_Title{`Main Menu`}
-menu_New{`New Game`}
-menu_Options{`Options`}
-menu_Continue{`Continue`}
+menuBackground1{`./IMG/EN/menuBckg1.bmp`}
