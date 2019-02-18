@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Normal<->Kol converter</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			font-family: Helvetica;
+		}
+		@font-face {
+			font-family: Kol;
+			src: 	url("Kol.woff") format("woff"), /*IE9*/
+					url("Kol.ttf") format("truetype");
+		}
+	</style>
+	<script type="text/javascript" src='dicParser.js'></script>
+	<script type="text/javascript" src='Kol.js'></script>
+	<script type="text/javascript" src='dictionary.js'></script>
+</head>
+<body>
+	<h3>
+		Input Kol - romanization: <input style='font-size: 20px;' id='kol'>
+	</h3>
+	<h3>
+		Output: <span id='out' style='font-size: 60px;font-weight: bold; font-family: Kol;'></span>
+	</h3>
+	<br>
+	<h3>
+		Input Kol - signs: <input style='font-size: 20px;font-family: Kol;' id='kol2'>
+	</h3>
+	<h3>
+		Output: <span id='out2' style='font-size: 60px;font-weight: bold;'></span>
+	</h3>
+	<p style='font-size: 50px;font-family: Kol;'>
+		Font Test:                   
+	</p>
+	<script type="text/javascript">
+		document.querySelector("input#kol").value = ``;
+		document.querySelector("input#kol").onkeyup = (e)=>{
+			let kx = e.target.value;
+		//	document.querySelector('span#out').innerText = parseKol(kx);
+		}
+		//setTimeout($=>document.querySelector("input#kol").onkeyup({target: document.querySelector("input#kol")}),1000);
+
+		document.querySelector("input#kol2").value = ``;
+		document.querySelector("input#kol2").onkeyup = (e)=>{
+			let kx = e.target.value;
+		//	document.querySelector('span#out2').innerText = backKol(kx);
+		}
+		//setTimeout($=>document.querySelector("input#kol2").onkeyup({target: document.querySelector("input#kol2")}),1000);
+	</script>
+</body>
+</html>

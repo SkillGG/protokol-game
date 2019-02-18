@@ -1,0 +1,80 @@
+// `//` = comment
+// `#` = code comment (if code is incorrect --- ommit, otherwise use as normal code)
+
+
+// Syntax:
+// 		[_|<Flag>{[setting]}|<Flag>{[setting]}|...|_]<romanization> => <e_code>
+//	EX:
+//		_|cs|sfx{*}|_a=>u010
+
+
+// <Flag>[setting]:
+
+//		sfx{<romanization>[=><e_code>]--<romanization>[=><e_code>]--...} or sfx{*}
+//			Suffix flag, means that it matches if is after any word given in settings.
+//			!NOTE: suffixed word has to exist already in dicitionary and given name is case sensitive.
+//			!! NEEDS SETTINGS !!
+
+//		pfx{<romanization>[=><e_code>]--<romanization>[=><e_code>]--...} or pfx{*}
+//			Prefix flag, means that it matches if is before any word given in settings.
+//			!NOTE: prefixed word has to exist already in dicitionary and given name is case sensitive.
+//			!! NEEDS SETTINGS !!
+
+//		cs
+//			Case sensitivity flag, means that it cares about case of letters.
+//			!! NO SETTINGS !!
+
+
+//<romanization>:
+//	A string that contains a text that (with flags) will
+//	be changed into unicode u+exxx code fiven in <e_code>
+
+//<e_code>:
+//	Unicode u+exxx code written as:
+//		`uxxx`
+
+// Implemented: 
+//	a b d e f g x(h) i ii aa oo eek l w n m o p
+
+
+
+
+
+//	al = nothing
+//	aL = word u010(a)u02e(l)
+// #_|cs|_aL=>u010u02e // aL => al
+
+//	el = u034(e)u02e(l)
+//	eL = u034(e)u02e(l)
+// #eL=>u034u02e // el => el
+
+//	(!(aL)|eL)!(ne) = (u010|u019)u034u01a
+// #_|cs|pfx{aL=>u010--eL=>u019}|_ne=>u034u01a
+
+//	SYNTAX ERROR[silent] (el not found)
+// #_|cs|pfx{aL=>u010--el=>u019}|_ne=>u034u01a
+
+// PROTO KOL:
+					fe=>u1cu19 						// human
+_|cs|_				hA=>u20u11 						// rock
+_|cs|_				ha=>u20u10 						// hard
+					pooi=>u3eu2au24					// to sit
+_|cs|_				maA=>u37u27						// earth
+_|pfx{*}|_			eno=>u35						// un-, in-
+_|pfx{*aoie}|_		en=>u35							// un-, in-
+_|sfx{*}|_			ge=>u12
+					ko=>u3eu3b						// to cause
+_|cs|_				fO=>u1cu3b						// to eat
+_|cs|_				fo=>u1cu39						// delicious
+					domo=>u16u3au36u39				// to do
+					ni=>u34u24						// to go, to walk
+					fi=>u1cu22						// water
+					ma=>u37u37						// mother
+					naa=>u34u27						// small/few
+					naama=>u34u27u37u37				// sister
+					fema=>u1cu19u37u37				// father
+					naafema=>u34u27u1cu19u37u37		// brother
+					na=>u34u12						// what?
+					fena=>u1cu19u34u12				// who? whom? whose?
+					nawa=>u34u11u33u11				// building
+					feni=>u1cu19u34u24				// coming back
