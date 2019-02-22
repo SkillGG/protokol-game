@@ -1,4 +1,5 @@
 let Game = {};
+
 let justType = {type: true};
 
 Game.start = async function(GameData){
