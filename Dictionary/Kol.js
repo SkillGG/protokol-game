@@ -2,6 +2,19 @@
 
 let Kol = {};
 
+Ko.matchPhrase = (sent, dic)=>{
+
+	let sA = sent.split(" ");
+	let rs = "";
+
+	sA.forEach((e)=>{
+		rs += `${dic.matchWord(e)} `;
+	});
+
+	return rs.trim();
+
+}
+
 Kol.backKol = (sentence)=>{
 	return sentence
 	.replace(/\ue010|\ue011|\ue012|\ue013/g, "a")

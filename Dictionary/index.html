@@ -38,14 +38,14 @@
 		document.querySelector("input#kol").value = ``;
 		document.querySelector("input#kol").onkeyup = (e)=>{
 			let kx = e.target.value;
-		//	document.querySelector('span#out').innerText = parseKol(kx);
+			document.querySelector('span#out').innerText = Kol.matchPhrase(kx, Dic);
 		}
 		//setTimeout($=>document.querySelector("input#kol").onkeyup({target: document.querySelector("input#kol")}),1000);
 
 		document.querySelector("input#kol2").value = ``;
 		document.querySelector("input#kol2").onkeyup = (e)=>{
 			let kx = e.target.value;
-		//	document.querySelector('span#out2').innerText = backKol(kx);
+			document.querySelector('span#out').innerText = Kol.matchPhrase(kx, Dic);
 		}
 		//setTimeout($=>document.querySelector("input#kol2").onkeyup({target: document.querySelector("input#kol2")}),1000);
 	</script>
