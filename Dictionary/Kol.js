@@ -2,7 +2,7 @@
 
 let Kol = {};
 
-Ko.matchPhrase = (sent, dic)=>{
+Kol.matchPhrase = (sent, dic)=>{
 
 	let sA = sent.split(" ");
 	let rs = "";
